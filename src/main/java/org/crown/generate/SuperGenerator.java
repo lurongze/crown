@@ -177,13 +177,13 @@ public class SuperGenerator {
     protected GlobalConfig getGlobalConfig() {
         return new GlobalConfig()
                 .setOutputDir(getJavaPath())//输出目录
-                .setFileOverride(false)// 是否覆盖文件
+                .setFileOverride(true)// 是否覆盖文件
                 .setActiveRecord(false)// 开启 activeRecord 模式
                 .setEnableCache(false)// XML 二级缓存
                 .setBaseResultMap(false)// XML ResultMap
                 .setBaseColumnList(false)// XML columList
                 .setKotlin(false) //是否生成 kotlin 代码
-                .setOpen(false)
+                .setOpen(true)
                 .setAuthor("Caratacus") //作者
                 //自定义文件命名，注意 %s 会自动填充表实体属性！
                 .setEntityName("%s")
@@ -202,7 +202,8 @@ public class SuperGenerator {
      */
     private String getRootPath() {
         String file = Objects.requireNonNull(SuperGenerator.class.getClassLoader().getResource("")).getFile();
-        return new File(file).getParentFile().getParentFile().getParent();
+        // return new File(file).getParentFile().getParentFile().getParent();
+        return new File(file).getParentFile().getParent();
     }
 
     /**
